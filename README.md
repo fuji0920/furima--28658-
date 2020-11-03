@@ -48,27 +48,27 @@ has_many :purchase_records
 |shipping_area_id       |integer|null: false|
 |shipping_days_id       |integer|null: false|
 |price                  |integer|null: false|
-|users_id               |integer|oreign_key: true|
+|users_id               |integer|foreign_key: true|
 ### Association
-belongs_to :users
-has_one :purchase_records
+belongs_to :user
+has_one :purchase_record
 
 ## addressテーブル
 |Column                 |Type   |Options|
 |post                   |string |null: false|
 |prefecture_id          |integer|null: false|
-|city_id                |integer|null: false|
-|address                |integer|null: false|
+|city                   |integer|null: false|
+|address                |string |null: false|
 |bilding                |string |-------|
-|tel                    |integer|null: false|
-|purchase_records_id    |integer|oreign_key: true|
+|tel                    |string |null: false|
+|purchase_records_id    |integer|foreign_key: true|
 ### Association
-belongs_to :purchase_records
+belongs_to :purchase_record
 
 ## purchase_recordsテーブル
 |Column                 |Type   |Options|
-|product_id             |integer|oreign_key: true|
-|user_id                |integer|oreign_key: true|
+|product_id             |integer|foreign_key: true|
+|user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
 belongs_to :product
