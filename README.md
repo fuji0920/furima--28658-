@@ -25,57 +25,51 @@ Things you may want to cover:
 
 
 ## usersテーブル
-|Column             |Type   |Options|
-|id                 |BIGINT |-------|
-|nickname           |VARCHAR|null: false|
-|email              |VARCHAR|foreign_key: true|
-|pw                 |VARCHAR|foreign_key: true|
-|confirmation_pw    |VARCHAR|foreign_key: true|
-|last_name          |VARCHAR|null: false|
-|first_name         |VARCHAR|null: false|
-|last_name_kana     |VARCHAR|null: false|
-|last_name_kana     |VARCHAR|null: false|
-|birthday           |date   |null: false|
+|Column                 |Type   |Options|
+|nickname               |string|null: false|
+|email                  |string|foreign_key: true|
+|encrypted_password     |string|foreign_key: true|
+|last_name              |string|null: false|
+|first_name             |string|null: false|
+|last_name_kana         |string|null: false|
+|last_name_kana         |string|null: false|
+|birthday               |date  |null: false|
 ### Association
 has_many :products
 has_many :purchase_records
 
 ## productsテーブル
-|Column             |Type   |Options|
-|id                 |BIGINT |-------|
-|name               |VARCHAR|null: false|
-|image              |string |null: false|
-|text               |text   |null: false|
-|category           |integer|null: false|
-|product_status     |integer|null: false|
-|shipping_fee_status|integer|null: false|
-|shipping_area      |integer|null: false|
-|shipping_days      |integer|null: false|
-|price              |integer|null: false|
-|users_id           |BIGINT |-------|
+|Column                 |Type   |Options|
+|name                   |string |null: false|
+|text                   |text   |null: false|
+|category_id            |integer|null: false|
+|product_status_id      |integer|null: false|
+|shipping_fee_status_id |integer|null: false|
+|shipping_area_id       |integer|null: false|
+|shipping_days_id       |integer|null: false|
+|price                  |integer|null: false|
+|users_id               |integer|oreign_key: true|
 ### Association
 belongs_to :users
 has_one :purchase_records
 
 ## addressテーブル
-|Column             |Type   |Options|
-|id                 |BIGINT |-------|
-|post               |string |null: false|
-|prefecture         |integer|null: false|
-|city               |integer|null: false|
-|address            |integer|null: false|
-|bilding            |integer|-------|
-|tel                |integer|null: false|
-|purchase_records_id|BIGINT |null: false|
+|Column                 |Type   |Options|
+|post                   |string |null: false|
+|prefecture_id          |integer|null: false|
+|city_id                |integer|null: false|
+|address                |integer|null: false|
+|bilding                |string |-------|
+|tel                    |integer|null: false|
+|purchase_records_id    |integer|oreign_key: true|
 ### Association
 belongs_to :purchase_records
 
 ## purchase_recordsテーブル
-|Column             |Type   |Options|
-|id                 |BIGINT |-------|
-|products_id        |BIGINT |-------|
-|users_id           |BIGINT |-------|
+|Column                 |Type   |Options|
+|product_id             |integer|oreign_key: true|
+|user_id                |integer|oreign_key: true|
 ### Association
-belongs_to :users
-belongs_to :products
+belongs_to :user
+belongs_to :product
 has_one :address
