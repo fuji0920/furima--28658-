@@ -27,8 +27,8 @@ Things you may want to cover:
 ## usersテーブル
 |Column                 |Type   |Options|
 |nickname               |string|null: false|
-|email                  |string|foreign_key: true|
-|encrypted_password     |string|foreign_key: true|
+|email                  |string|null: false|
+|encrypted_password     |string|null: false|
 |last_name              |string|null: false|
 |first_name             |string|null: false|
 |last_name_kana         |string|null: false|
@@ -48,7 +48,7 @@ has_many :purchase_records
 |shipping_area_id       |integer|null: false|
 |shipping_days_id       |integer|null: false|
 |price                  |integer|null: false|
-|users_id               |integer|foreign_key: true|
+|user_id               |integer|foreign_key: true|
 ### Association
 belongs_to :user
 has_one :purchase_record
@@ -61,7 +61,7 @@ has_one :purchase_record
 |address                |string |null: false|
 |bilding                |string |-------|
 |tel                    |string |null: false|
-|purchase_records_id    |integer|foreign_key: true|
+|purchase_record_id    |integer|foreign_key: true|
 ### Association
 belongs_to :purchase_record
 
