@@ -57,7 +57,7 @@ has_one :purchase_record
 |Column                 |Type   |Options|
 |post                   |string |null: false|
 |prefecture_id          |integer|null: false|
-|city                   |integer|null: false|
+|city                   |string |null: false|
 |address                |string |null: false|
 |bilding                |string |-------|
 |tel                    |string |null: false|
