@@ -48,7 +48,7 @@ has_many :purchase_records
 |shipping_area_id       |integer|null: false|
 |shipping_days_id       |integer|null: false|
 |price                  |integer|null: false|
-|user_id               |integer|foreign_key: true|
+|user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
 has_one :purchase_record
