@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :shipping_area_id,       null: false
       t.integer :shipping_days_id,       null: false
       t.integer :price,                  null: false
-      t.integer :user,                   foreign_key: true
+      t.references :user,                foreign_key: true
       t.timestamps
     end
   end
