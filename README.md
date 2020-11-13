@@ -38,7 +38,7 @@ Things you may want to cover:
 has_many :products
 has_many :purchase_records
 
-## productsテーブル
+## itemsテーブル
 |Column                 |Type   |Options|
 |name                   |string |null: false|
 |text                   |text   |null: false|
