@@ -35,10 +35,10 @@ Things you may want to cover:
 |first_name_kana        |string|null: false|
 |birthday               |date  |null: false|
 ### Association
-has_many :products
+has_many :items
 has_many :purchase_records
 
-## productsテーブル
+## itemsテーブル
 |Column                 |Type   |Options|
 |name                   |string |null: false|
 |text                   |text   |null: false|
@@ -46,9 +46,9 @@ has_many :purchase_records
 |product_status_id      |integer|null: false|
 |shipping_fee_status_id |integer|null: false|
 |shipping_area_id       |integer|null: false|
-|shipping_days_id       |integer|null: false|
+|shipping_day_id       |integer|null: false|
 |price                  |integer|null: false|
-|user_id               |integer|foreign_key: true|
+|user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
 has_one :purchase_record
