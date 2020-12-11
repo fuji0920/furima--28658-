@@ -67,7 +67,7 @@ belongs_to :order
 
 ## ordersテーブル
 |Column                 |Type   |Options|
-|product_id             |integer|foreign_key: true|
+|item_id             |integer|foreign_key: true|
 |user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
