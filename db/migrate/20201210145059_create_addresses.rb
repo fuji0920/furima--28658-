@@ -6,7 +6,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
 <<<<<<< HEAD
       t.string     :city,           null: false
       t.string     :address,        null: false
-      t.string     :bilding
+      t.string     :bilding,
       t.string     :tel,            null: false
       t.integer    :order_id,       foreign_key: true
 =======
