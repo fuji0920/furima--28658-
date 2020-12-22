@@ -61,7 +61,7 @@ has_one :order
 |address                |string |null: false|
 |bilding                |string |-------|
 |tel                    |string |null: false|
-|purchase_record_id    |integer|foreign_key: true|
+|order_id               |integer|foreign_key: true|
 ### Association
 belongs_to :order
 

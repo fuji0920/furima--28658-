@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
          @user_order.save
          redirect_to action: :index
       else
-        render action: "/path/to/rails/app/views/items/index"
+        render action: "/path/to/rails/app/views/orders/index"
       end
   end
 
