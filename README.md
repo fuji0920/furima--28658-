@@ -67,7 +67,7 @@ belongs_to :purchase_record
 
 ## purchase_recordsテーブル
 |Column                 |Type   |Options|
-|item_id             |integer|foreign_key: true|
+|product_id             |integer|foreign_key: true|
 |user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
