@@ -36,7 +36,7 @@ Things you may want to cover:
 |birthday               |date  |null: false|
 ### Association
 has_many :items
-has_many :orders
+has_many :purchase_records
 
 ## itemsテーブル
 |Column                 |Type   |Options|
@@ -51,7 +51,7 @@ has_many :orders
 |user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
-has_one :order
+has_one :purchase_record
 
 ## addressテーブル
 |Column                 |Type   |Options|
@@ -63,9 +63,9 @@ has_one :order
 |tel                    |string |null: false|
 |purchase_record_id    |integer|foreign_key: true|
 ### Association
-belongs_to :order
+belongs_to :purchase_record
 
-## ordersテーブル
+## purchase_recordsテーブル
 |Column                 |Type   |Options|
 |item_id             |integer|foreign_key: true|
 |user_id                |integer|foreign_key: true|
