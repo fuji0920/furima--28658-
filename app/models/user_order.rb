@@ -1,4 +1,4 @@
-class クラス名
+class UserOrder
   include ActiveModel::Model
   attr_accessor :post, :prefecture_id, :city, :address, :bilding, :tel
 
@@ -13,6 +13,6 @@ class クラス名
 
   def save
     order = Order.create
-    address.create(post :post, prefecture_id :prefecture_id, city :city, address :address, bilding :bilding, tel :tel, order.id :order.id)
+    Address.create(post: post, prefecture_id: prefecture_id, city: city, address: address, bilding: bilding, tel: tel, order_id: order.id)
   end
 end
