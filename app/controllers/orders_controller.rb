@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :set_item, only: [:index]
+  before_action :set_item, only: [:index, :create]
 
   def index
+    @user_order = UserOrder.new
   end
 
   def new
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:user_order).permit(:post, :prefecture_id, :city, :address, :bilding, :tel)
+    params.require(:user_order).permit(:post, :shipping_area_id, :city, :address, :bilding, :tel).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def set_item
