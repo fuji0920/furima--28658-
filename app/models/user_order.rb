@@ -4,7 +4,8 @@ class UserOrder
 
   with_options presence: true do
     validates :post, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Postal code Input correctly" } 
-    validates :tel,  format: { with: /\A\d{9,10,11}\z/, message: "is invalid. Phone number Input only number" } 
+    validates :tel,  format: { with: /\A[0-9]+\z/, message: "is invalid. Phone number Input only number" } 
+    validates :tel,  length: { maximum: 11 }
     validates :city, :address, :token
   end
 

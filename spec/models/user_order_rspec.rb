@@ -10,6 +10,11 @@ RSpec.describe UserOrder, type: :model do
       expect(@user_order).to be_valid
     end
 
+    it 'buildingが空でも購入できること' do
+      @user_order.building = nil
+      expect(@user_order).to be_valid
+    end
+
     it "tokenが空では登録できないこと" do
       @user_order.token = nil
       @user_order.valid?
@@ -51,6 +56,13 @@ RSpec.describe UserOrder, type: :model do
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include("Tel is invalid. Phone number Input only number")
     end
+
+    it 'telが12桁あると登録できないこと' do
+      @user_order.tel = '090123456789'
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
+    end
+
   end
 end
 
