@@ -1,11 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
 
   def index
-    @user_order = UserOrder.new
-  end
+    if user_signed_in?
+      @user_order = UserOrder.new
+    else
+      redirect_to new_user_session_path
+    end
 
-  def new
   end
 
   def create
