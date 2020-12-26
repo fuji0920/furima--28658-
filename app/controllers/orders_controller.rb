@@ -3,10 +3,12 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    if user_signed_in?
-      @user_order = UserOrder.new
+    # 購入者かつ商品がある場合、購入ページに移行する
+    # ユーザーかつ商品が売却されている場合、トップページに移行する
+    if current_user.id == @item.user_id || @item.order!= nil 
+      redirect_to root_path 
     else
-      redirect_to new_user_session_path
+      @user_order = UserOrder.new
     end
 
   end
