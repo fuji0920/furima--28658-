@@ -10,6 +10,12 @@ RSpec.describe UserOrder, type: :model do
       expect(@user_order).to be_valid
     end
 
+    it "tokenが空では登録できないこと" do
+      @user_order.token = nil
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Token can't be blank")
+    end
+
     it 'postが空では登録できないこと' do
       @user_order.post = nil
       @user_order.valid?
