@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe UserOrder, type: :model do
   describe '#create' do
     before do
-      @user_order = FactoryBot.build(:user_order)
+      @seller_user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item, user_id: @seller_user.id)
+      @buyer_user = FactoryBot.create(:user)
+      @user_order = FactoryBot.build(:user_order, item_id: @item.id, user_id:@buyer_user.id)
     end
 
     it 'ユーザーが購入できること' do
@@ -61,6 +64,18 @@ RSpec.describe UserOrder, type: :model do
       @user_order.tel = '090123456789'
       @user_order.valid?
       expect(@user_order.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
+    end
+
+    it 'item_idが空では保存できないこと' do
+      @user_order.item_id = nil
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("Item can't be blank")
+    end
+
+    it 'user_idが空では保存できないこと' do
+      @user_order.user_id = nil
+      @user_order.valid?
+      expect(@user_order.errors.full_messages).to include("User can't be blank")
     end
 
   end

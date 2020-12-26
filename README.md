@@ -71,5 +71,5 @@ belongs_to :order
 |user_id                |integer|foreign_key: true|
 ### Association
 belongs_to :user
-belongs_to :product
+belongs_to :item
 has_one :address

@@ -7,6 +7,7 @@ FactoryBot.define do
     address               { '青山1-1-1' }
     building              { '柳ビル103' }
     tel                   { '09012345678' }
+
   end
 end
 
