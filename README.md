@@ -2,6 +2,7 @@
 ## usersテーブル
 
 |Column                 |Type  |Options    |
+|-----------------------|------|-----------|
 |nickname               |string|null: false|
 |email                  |string|null: false|
 |encrypted_password     |string|null: false|
@@ -18,7 +19,8 @@ has_many :orders
 
 ## itemsテーブル
 
-|Column                 |Type   |Options|
+|Column                 |Type   |Options    |
+|-----------------------|------|------------|
 |name                   |string |null: false|
 |text                   |text   |null: false|
 |category_id            |integer|null: false|
@@ -36,7 +38,8 @@ has_one :order
 
 ## addressテーブル
 
-|Column                 |Type   |Options|
+|Column                 |Type   |Options    |
+|-----------------------|-------|-----------|
 |post                   |string |null: false|
 |prefecture_id          |integer|null: false|
 |city                   |string |null: false|
@@ -51,7 +54,8 @@ belongs_to :order
 
 ## ordersテーブル
 
-|Column                 |Type   |Options|
+|Column                 |Type   |Options          |
+|-----------------------|-------|-----------------|
 |item_id                |integer|foreign_key: true|
 |user_id                |integer|foreign_key: true|
 
